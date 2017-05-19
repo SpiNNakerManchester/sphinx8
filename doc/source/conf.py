@@ -336,14 +336,12 @@ epub_exclude_files = ['search.html']
 
 autoclass_content = 'both'
 
-autoclass_content = 'both'
-
 MOCK_MODULES = ['scipy', 'scipy.stats']
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
 
 
-def list_module(module_name, exclude = None):
+def list_module(module_name, exclude=None):
     if os.path.exists(module_name):
         for name in os.listdir(module_name):
             path = os.path.join(module_name, name)
@@ -352,11 +350,12 @@ def list_module(module_name, exclude = None):
         os.mkdir(module_name)
     module = __import__(module_name)
     source = os.path.dirname(module.__file__)
-    if exclude == None:
+    if exclude is None:
         apidoc.main([None, '-o', module_name, source])
     else:
         exclude_path = os.path.join(source, exclude)
         apidoc.main([None, '-o', module_name, source, exclude_path])
+
 
 list_module("spinn_utilities")
 list_module("spinn_machine")
