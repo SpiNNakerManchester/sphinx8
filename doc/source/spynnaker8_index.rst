@@ -1,7 +1,7 @@
-sPyNNakerExtraModelsPlugin
-==========================
+sPyNNaker
+=========
 
-.. automodule:: spynnaker_extra_pynn_models
+.. automodule:: spynnaker8
 
 Contents
 --------
@@ -9,7 +9,7 @@ Contents
 .. toctree::
    :maxdepth: 10
 
-   spynnaker_extra_pynn_models/modules.rst
+   spynnaker8/modules.rst
 
 Indices and tables
 ------------------

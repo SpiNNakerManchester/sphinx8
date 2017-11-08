@@ -154,7 +154,7 @@ SpiNNakerGraphFrontEnd_individual_docs_
 
 sPyNNaker
 ---------
-This package provides a PyNN implementation for SpiNNaker.
+This package provides the base for the PyNN implementation for SpiNNaker.
 
 .. toctree::
    :maxdepth: 3
@@ -169,38 +169,21 @@ sPyNNaker_individual_docs_
 .. _sPyNNaker_individual_docs: http://spynnaker.readthedocs.io
 
 
-sPyNNakerExternalDevicesPlugin
-------------------------------
+sPyNNaker8
+---------
+This package provides a PyNN 0.8 implementation for SpiNNaker.
 
 .. toctree::
    :maxdepth: 3
 
-   spynnaker_external_devices_plugin_index
+   spynnaker8_index
 
-sPyNNakerExternalDevicesPlugin_github_
+sPyNNaker8_github_
 
-sPyNNakerExternalDevicesPlugin_individual_docs_
+sPyNNaker8_individual_docs_
 
-.. _sPyNNakerExternalDevicesPlugin_github: https://github.com/SpiNNakerManchester/sPyNNakerExternalDevicesPlugin
-.. _sPyNNakerExternalDevicesPlugin_individual_docs: http://spynnakerexternaldevicesplugin.readthedocs.io
-
-
-sPyNNakerExtraModelsPlugin
---------------------------
-
-This package provides implementations of other neural models which are currently not support by the PyNN language.
-
-.. toctree::
-   :maxdepth: 3
-
-   spynnaker_extra_pynn_models_index
-
-sPyNNakerExtraModelsPlugin_github_
-
-sPyNNakerExtraModelsPlugin_individual_docs_
-
-.. _sPyNNakerExtraModelsPlugin_github: https://github.com/SpiNNakerManchester/sPyNNakerExtraModelsPlugin
-.. _sPyNNakerExtraModelsPlugin_individual_docs: http://spynnakerextramodelsplugin.readthedocs.io
+.. _sPyNNaker8_github: https://github.com/SpiNNakerManchester/sPyNNaker8
+.. _sPyNNaker8_individual_docs: http://spynnaker8.readthedocs.io
 
 spalloc_server
 --------------
@@ -215,6 +198,7 @@ spalloc_server_github_
 
 .. _spalloc_server_github: https://github.com/SpiNNakerManchester/spalloc_server
 .. _spalloc_server_readthedocs: http://spalloc-server.readthedocs.io
+
 
 Indices and tables
 ------------------
