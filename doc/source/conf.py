@@ -36,6 +36,26 @@ extensions = [
     'sphinx.ext.autosummary',
 ]
 
+ds_link = 'http://dataspecification.readthedocs.io/en/latest/'
+fe_link = 'http://spinnfrontendcommon.readthedocs.io/en/latest/'
+
+intersphinx_mapping = {'spinn_machine':
+                       ('http://spinnmachine.readthedocs.io/en/latest/',
+                           None),
+                       'spinn_storage_handlers':
+                           ('http://spinnmachine.readthedocs.io/en/latest/',
+                            None),
+                       'spinnman':
+                           ('http://spinnman.readthedocs.io/en/latest/',
+                            None),
+                       'pacman': ('http://pacman.readthedocs.io/en/latest/',
+                                  None),
+                       'data_specification': (ds_link, None),
+                       'spinn_front_end_common': (fe_link, None),
+                       'spynnaker': ("http://spynnaker.readthedocs.io", None),
+                       'spynnaker8': ("http://spynnaker8.readthedocs.io", None)
+                       }
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -366,5 +386,4 @@ list_module("data_specification", "data_spec_sender")
 list_module("spinn_front_end_common")
 list_module("spinnaker_graph_front_end", "examples")
 list_module("spynnaker")
-list_module("spynnaker_external_devices_plugin")
-list_module("spynnaker_extra_pynn_models")
+list_module("spynnaker8")
