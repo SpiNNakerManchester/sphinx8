@@ -136,22 +136,6 @@ SpiNNFrontEndCommon_individual_docs_
 .. _SpiNNFrontEndCommon_individual_docs: http://spinnfrontendcommon.readthedocs.io
 
 
-SpiNNakerGraphFrontEnd
-----------------------
-
-.. toctree::
-   :maxdepth: 3
-
-   spinnaker_graph_front_end_index
-
-SpiNNakerGraphFrontEnd_github_
-
-SpiNNakerGraphFrontEnd_individual_docs_
-
-.. _SpiNNakerGraphFrontEnd_github: https://github.com/SpiNNakerManchester/SpiNNakerGraphFrontEnd
-.. _SpiNNakerGraphFrontEnd_individual_docs: http://spinnakergraphfrontend.readthedocs.io
-
-
 sPyNNaker
 ---------
 This package provides the base for the PyNN implementation for SpiNNaker.
