@@ -1,8 +1,13 @@
 SpiNNaker Manchester (PyNN 8)
 =============================
-These pages document the main Manchester python code for the PyNN 8 branch of the SpiNNaker_ Project.
+These pages document the main Manchester python code for the PyNN 8 branch of the SpiNNaker_ Project which can be found on github_
+
+Alternative ways to run SpiNNaker_ are using the SpiNNakerGraphFrontEnd_, or running it with older PyNN_07_ .
 
 .. _SpiNNaker: http://apt.cs.manchester.ac.uk/projects/SpiNNaker/
+.. _github: https://github.com/SpiNNakerManchester
+.. _SpiNNakerGraphFrontEnd: http://spinnaker-graphfrontend-combined.readthedocs.io
+.. _PyNN_07_: http://spinnaker7manchester.readthedocs.io/en/latest/index.html
 
 SpiNNUtils
 ----------
@@ -104,19 +109,6 @@ DataSpecification_individual_docs_
 .. _DataSpecification_github: https://github.com/SpiNNakerManchester/DataSpecification
 .. _DataSpecification_individual_docs: http://dataspecification.readthedocs.io
 
-spalloc
--------
-Spalloc is a Python library and set of command-line programs for requesting SpiNNaker machines from a spalloc server.
-
-The spalloc module uses a different documentation style so is not included here.
-
-Their documenation can be found at: spalloc_readthedocs_
-
-spalloc_github_
-
-.. _spalloc_github: https://github.com/SpiNNakerManchester/spalloc
-.. _spalloc_readthedocs: http://spalloc.readthedocs.io
-
 SpiNNFrontEndCommon
 -------------------
 This package provides functionality which are common to front ends that translate application level programs into executables which run on a SpiNNaker machine.
@@ -166,6 +158,19 @@ sPyNNaker8_individual_docs_
 
 .. _sPyNNaker8_github: https://github.com/SpiNNakerManchester/sPyNNaker8
 .. _sPyNNaker8_individual_docs: http://spynnaker8.readthedocs.io
+
+spalloc
+-------
+Spalloc is a Python library and set of command-line programs for requesting SpiNNaker machines from a spalloc server.
+
+The spalloc module uses a different documentation style so is not included here.
+
+Their documenation can be found at: spalloc_readthedocs_
+
+spalloc_github_
+
+.. _spalloc_github: https://github.com/SpiNNakerManchester/spalloc
+.. _spalloc_readthedocs: http://spalloc.readthedocs.io
 
 spalloc_server
 --------------

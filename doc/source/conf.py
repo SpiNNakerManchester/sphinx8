@@ -69,7 +69,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'SpiNNakerManchester'
+project = u'SpiNNaker8Manchester'
 copyright = u'2014-2017'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -202,7 +202,7 @@ html_static_path = ['_static']
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'SpiNNakerManchesterdoc'
+htmlhelp_basename = 'SpiNNaker8Manchesterdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -222,7 +222,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'SpiNNakerManchester.tex', u'SpiNNakerManchester Documentation',
+  ('index', 'SpiNNaker8Manchester.tex', u'SpiNNaker 8 Manchester Documentation',
    u'', 'manual'),
 ]
 
@@ -252,7 +252,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'SpiNNakerManchester', u'SpiNNakerManchester Documentation',
+    ('index', 'SpiNNaker8Manchester', u'SpiNNaker 8 Manchester Documentation',
      [u''], 1)
 ]
 
@@ -266,8 +266,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'SpiNNakerManchester', u'SpiNNakerManchester Documentation',
-   u'', 'SpiNNakerManchester', '',
+  ('index', 'SpiNNaker8Manchester', u'SpiNNaker 8 Manchester Documentation',
+   u'', 'SpiNNaker8Manchester', '',
    'Miscellaneous'),
 ]
 
@@ -287,7 +287,7 @@ texinfo_documents = [
 # -- Options for Epub output ----------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'SpiNNakerManchester'
+epub_title = u'SpiNNaker8 Manchester'
 epub_author = u''
 epub_publisher = u''
 epub_copyright = u'2017'
@@ -356,7 +356,7 @@ epub_exclude_files = ['search.html']
 
 autoclass_content = 'both'
 
-MOCK_MODULES = ['scipy', 'scipy.stats','scipy.__version__']
+MOCK_MODULES = ['scipy', 'scipy.stats']
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
 
@@ -383,7 +383,6 @@ list_module("spinn_storage_handlers")
 list_module("spinnman")
 list_module("pacman")
 list_module("data_specification", "data_spec_sender")
-list_module("spalloc")
 list_module("spinn_front_end_common")
 list_module("spynnaker")
 list_module("spynnaker8")
