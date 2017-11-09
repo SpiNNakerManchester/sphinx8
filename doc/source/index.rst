@@ -4,8 +4,6 @@ These pages document the main Manchester python code for the PyNN 8 branch of th
 
 .. _SpiNNaker: http://apt.cs.manchester.ac.uk/projects/SpiNNaker/
 
-Note: These pages are currently under development
-
 SpiNNUtils
 ----------
 This provides basic utility functions and classes to other parts of SpiNNaker's tooling. Nothing in here knows anything about SpiNNaker functionality.
