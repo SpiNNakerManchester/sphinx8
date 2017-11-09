@@ -2,4 +2,4 @@ This repository serves only to generate combined code on rearthedocs for [sPyNNa
  
 Documentation
 =============
-[![readthedoc status](https://readthedocs.org/projects/spinnaker8manchester/badge/)](http://spinnaker8manchester.readthedocs.io)
+[http://spinnaker8manchester.readthedocs.io](http://spinnaker8manchester.readthedocs.io)
