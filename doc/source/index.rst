@@ -1,6 +1,6 @@
-SpiNNaker Manchester (PyNN 8)
+SpiNNaker Manchester (PyNN 0.9)
 =============================
-These pages document the main Manchester python code for the PyNN 8 branch of the SpiNNaker_ Project which can be found on github_
+These pages document the main Manchester python code for the PyNN 0.9 branch of the SpiNNaker_ Project which can be found on github_
 
 Alternative ways to run SpiNNaker_ are using the SpiNNakerGraphFrontEnd_, or running it with older PyNN_07_ .
 
