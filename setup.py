@@ -1,40 +1,18 @@
-import os
 from setuptools import setup
 try:
     from collections.abc import defaultdict
 except ImportError:
     from collections import defaultdict
 
-__version__ = None
-exec(open("spynnaker8/_version.py").read())
-assert __version__
-
 
 # Build a list of all project modules, as well as supplementary files
-main_package = "spynnaker8"
-extensions = {".aplx", ".boot", ".cfg", ".json", ".sql", ".template", ".xml",
-              ".xsd"}
-main_package_dir = os.path.join(os.path.dirname(__file__), main_package)
-start = len(main_package_dir)
 packages = []
 package_data = defaultdict(list)
-for dirname, dirnames, filenames in os.walk(main_package_dir):
-    if '__init__.py' in filenames:
-        package = "{}{}".format(
-            main_package, dirname[start:].replace(os.sep, '.'))
-        packages.append(package)
-    for filename in filenames:
-        _, ext = os.path.splitext(filename)
-        if ext in extensions:
-            package = "{}{}".format(
-                main_package, dirname[start:].replace(os.sep, '.'))
-            package_data[package].append(filename)
 
 setup(
-    name="sPyNNaker8",
-    version=__version__,
+    name="spinnaker8manchester",
     description="Tools for simulating neural models generated using "
-                "PyNN 0.8 on the SpiNNaker platform",
+                "PyNN 0.9 on the SpiNNaker platform",
     author="University of Manchester",
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -47,8 +25,8 @@ setup(
         "Operating System :: Microsoft :: Windows",
         "Operating System :: MacOS",
 
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
 
         "Topic :: Scientific/Engineering",
     ],
@@ -66,6 +44,7 @@ setup(
         'spalloc >= 1.0.1, < 2.0.0',
         'SpiNNFrontEndCommon >= 1!4.0.1, < 1!5.0.0',
         'sPyNNaker >= 1!4.0.1, < 1!5.0.0',
+        'sPyNNaker8 >= 1!4.0.1, < 1!5.0.0',
         'quantities >= 0.12.1',
         'pynn >= 0.9.1, < 0.10.0 ',
         'lazyarray >= 0.2.9, <= 0.4.0',
