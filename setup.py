@@ -34,20 +34,7 @@ setup(
     url="https://github.com/SpiNNakerManchester/SpyNNaker8",
     packages=packages,
     package_data=package_data,
-    install_requires=[
-        'SpiNNUtilities >= 1!4.0.1, < 1!5.0.0',
-        'SpiNNStorageHandlers >= 1!4.0.1, < 1!5.0.0',
-        'SpiNNMachine >= 1!4.0.1, < 1!5.0.0',
-        'SpiNNMan >= 1!4.0.1, < 1!5.0.0',
-        'SpiNNaker_PACMAN >= 1!4.0.1, < 1!5.0.0',
-        'SpiNNaker_DataSpecification >= 1!4.0.1, < 1!5.0.0',
-        'spalloc >= 1.0.1, < 2.0.0',
-        'SpiNNFrontEndCommon >= 1!4.0.1, < 1!5.0.0',
-        'sPyNNaker >= 1!4.0.1, < 1!5.0.0',
-        'sPyNNaker8 >= 1!4.0.1, < 1!5.0.0',
-        'quantities >= 0.12.1',
-        'pynn >= 0.9.1, < 0.10.0 ',
-        'neo >= 0.5.2, < 0.7.0'],
+    install_requires=[],
     maintainer="SpiNNakerTeam",
     maintainer_email="spinnakerusers@googlegroups.com"
 )
