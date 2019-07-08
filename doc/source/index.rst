@@ -2,12 +2,11 @@ SpiNNaker Manchester (PyNN 0.9)
 =============================
 These pages document the main Manchester python code for the PyNN 0.9 branch of the SpiNNaker_ Project which can be found on github_
 
-Alternative ways to run SpiNNaker_ are using the SpiNNakerGraphFrontEnd_, or running it with older PyNN_07_ .
+Alternative way to run SpiNNaker_ are using the SpiNNakerGraphFrontEnd_.
 
 .. _SpiNNaker: http://apt.cs.manchester.ac.uk/projects/SpiNNaker/
 .. _github: https://github.com/SpiNNakerManchester
 .. _SpiNNakerGraphFrontEnd: http://spinnaker-graphfrontend-combined.readthedocs.io
-.. _PyNN_07_: http://spinnaker7manchester.readthedocs.io/en/latest/index.html
 
 SpiNNUtils
 ----------
