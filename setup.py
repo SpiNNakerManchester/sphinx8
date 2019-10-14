@@ -1,8 +1,5 @@
 from setuptools import setup
-try:
-    from collections.abc import defaultdict
-except ImportError:
-    from collections import defaultdict
+from collections import defaultdict
 
 
 # Build a list of all project modules, as well as supplementary files
