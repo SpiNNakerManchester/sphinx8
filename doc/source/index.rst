@@ -41,23 +41,6 @@ SpiNNMachine_individual_docs_
 .. _SpiNNMachine_individual_docs: http://spinnmachine.readthedocs.io
 
 
-SpiNNStorageHandlers
---------------------
-This package provides classes to handle data storage, both in memory (through a bytearray buffer) and in a file. The file may be permanent or temporary.
-
-.. toctree::
-   :maxdepth: 3
-
-   spinn_storage_handlers_index
-
-SpiNNStorageHandlers_github_
-
-SpiNNStorageHandlers_individual_docs_
-
-.. _SpiNNStorageHandlers_github: https://github.com/SpiNNakerManchester/SpiNNStorageHandlers
-.. _SpiNNStorageHandlers_individual_docs: http://spinnstoragehandlers.readthedocs.io
-
-
 PACMAN
 ------
 This package provides utilities for partitioning, placing a routing on a SpiNNaker machine
