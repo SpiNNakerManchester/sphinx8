@@ -40,7 +40,7 @@ extensions = [
 
 _READTHEDOCS_PATTERN = 'https://{}.readthedocs.io/en/latest/'
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3.6', None),
+    'python': ('https://docs.python.org/3.8', None),
     'numpy': ("https://numpy.org/doc/stable/", None),
     'maplotlib': ('https://matplotlib.org', None),
     'pynn': ("http://neuralensemble.org/docs/PyNN/", None),
@@ -56,8 +56,8 @@ intersphinx_mapping = {
     'spalloc': (_READTHEDOCS_PATTERN.format('spalloc'), None),
     'spinn_front_end_common': (
         _READTHEDOCS_PATTERN.format('spinnfrontendcommon'), None),
-    'spynnaker': (_READTHEDOCS_PATTERN.format('spynnaker'), None),
-    'spynnaker8': (_READTHEDOCS_PATTERN.format('spynnaker8'), None)}
+    'spynnaker': (_READTHEDOCS_PATTERN.format('spynnaker'), None)
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -73,7 +73,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'SpiNNaker8Manchester'
-copyright = u'2014-2020'
+copyright = u'2014-2021'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -362,6 +362,12 @@ epub_exclude_files = ['search.html']
 # epub_use_index = True
 
 autoclass_content = 'both'
+
+# We want to document __call__ when encountered
+autodoc_default_options = {
+    "members": None,
+    "special-members": "__call__"
+}
 
 MOCK_MODULES = ['scipy', 'scipy.stats']
 for mod_name in MOCK_MODULES:
