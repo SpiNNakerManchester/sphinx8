@@ -12,7 +12,7 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-from sphinx import apidoc
+from sphinx.ext import apidoc
 import mock
 import sys
 import os
@@ -373,28 +373,78 @@ MOCK_MODULES = ['scipy', 'scipy.stats']
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = mock.Mock()
 
+# The .py files (name beginning with a letter) we want in the doc build
+wanted_files = {
+    "spynnaker": [
+        "spynnaker/gsyn_tools.py",
+        "spynnaker/spike_checker.py",
+        "spynnaker/plot_utils.py",
+        "spynnaker/pyNN/abstract_spinnaker_common.py",
+        "spynnaker/pyNN/exceptions.py",
+        "spynnaker/pyNN/spynnaker_simulator_interface.py",
+        "spynnaker/pyNN/spynnaker_external_device_plugin_manager.py",
+        "spynnaker/pyNN/models/abstract_pynn_model.py",
+        "spynnaker/pyNN/models/projection.py",
+        "spynnaker/pyNN/models/defaults.py",
+        "spynnaker/pyNN/models/recorder.py",
+        "spynnaker/pyNN/models/neuron/key_space_tracker.py",
+        "spynnaker/pyNN/models/neuron/synaptic_matrices.py",
+        "spynnaker/pyNN/models/neuron/master_pop_table.py",
+        "spynnaker/pyNN/models/neuron/synaptic_matrix.py",
+        "spynnaker/pyNN/models/neuron/synapse_io.py",
+        "spynnaker/pyNN/models/neuron/synaptic_matrix_app.py",
+        "spynnaker/pyNN/models/neuron/plasticity/stdp/common.py",
+        "spynnaker/pyNN/models/spike_source/spike_source_array_vertex.py",
+        "spynnaker/pyNN/models/spike_source/spike_source_poisson_vertex.py",
+        "spynnaker/pyNN/models/spike_source/spike_source_poisson_machine_vertex.py",
+        "spynnaker/pyNN/models/common/recording_utils.py",
+        "spynnaker/pyNN/utilities/bit_field_utilities.py",
+        "spynnaker/pyNN/utilities/spynnaker_failed_state.py",
+        "spynnaker/pyNN/utilities/constants.py",
+        "spynnaker/pyNN/utilities/data_cache.py",
+        "spynnaker/pyNN/utilities/extracted_data.py",
+        "spynnaker/pyNN/utilities/fake_HBP_Portal_machine_provider.py",
+        "spynnaker/pyNN/utilities/running_stats.py",
+        "spynnaker/pyNN/utilities/utility_calls.py",
+        "spynnaker/pyNN/utilities/struct.py",
+        "spynnaker/pyNN/utilities/variable_cache.py"],
+    "spynnaker8": [
+        "spynnaker8/spynnaker8_simulator_interface.py",
+        "spynnaker8/spynnaker_plotting.py",
+        "spynnaker8/utilities/neo_convertor.py",
+        "spynnaker8/utilities/neo_compare.py"]
+}
 
-def list_module(module_name, exclude=None):
+
+def _filtered_files(module_name, base):
+    excludes = frozenset(
+        base + "/" + e for e in wanted_files.get(module_name, ()))
+    for root, _dirs, files in os.walk(base):
+        for filename in files:
+            full = root + "/" + filename
+            if filename.endswith(".py") and not filename.startswith("_"):
+                if excludes and full not in excludes:
+                    yield full
+
+
+def list_module(module_name, filters=None):
     if os.path.exists(module_name):
         for name in os.listdir(module_name):
             path = os.path.join(module_name, name)
             os.remove(path)
     else:
         os.mkdir(module_name)
-    module = __import__(module_name)
-    source = os.path.dirname(module.__file__)
-    if exclude is None:
-        apidoc.main([None, '-o', module_name, source])
-    else:
-        exclude_path = os.path.join(source, exclude)
-        apidoc.main([None, '-o', module_name, source, exclude_path])
+    source = os.path.dirname(__import__(module_name).__file__)
+    if not filters:
+        filters = _filtered_files(module_name, source)
+    apidoc.main(['-o', module_name, source, *filters])
 
 
 list_module("spinn_utilities")
 list_module("spinn_machine")
 list_module("spinnman")
 list_module("pacman")
-list_module("data_specification", "data_spec_sender")
+list_module("data_specification")
 list_module("spinn_front_end_common")
 list_module("spynnaker")
 list_module("spynnaker8")
