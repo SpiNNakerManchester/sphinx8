@@ -418,11 +418,13 @@ wanted_files = {
 
 def _filtered_files(module_name, base):
     excludes = frozenset(
-        base + "/" + e for e in wanted_files.get(module_name, ()))
+        os.path.join(base, e) for e in wanted_files.get(module_name, ()))
+    print(f"includes({module_name},{base}) = {excludes}")
     for root, _dirs, files in os.walk(base):
         for filename in files:
-            full = root + "/" + filename
             if filename.endswith(".py") and not filename.startswith("_"):
+                full = os.path.join(root, filename)
+                print(f"considering file: {full}")
                 if excludes and full not in excludes:
                     yield full
 
