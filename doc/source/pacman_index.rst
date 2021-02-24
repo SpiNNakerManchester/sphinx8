@@ -2,6 +2,7 @@ PACMAN
 ======
 
 .. automodule:: pacman
+   :noindex:
 
 Contents
 --------

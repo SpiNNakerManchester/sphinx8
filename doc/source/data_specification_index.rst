@@ -2,6 +2,7 @@ DataSpecification
 =================
 
 .. automodule:: data_specification
+   :noindex:
 
 Contents
 --------
