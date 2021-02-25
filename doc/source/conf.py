@@ -12,7 +12,7 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-from sphinx import apidoc
+from sphinx.ext import apidoc
 import mock
 import sys
 import os
@@ -23,6 +23,8 @@ import os
 # sys.path.insert(0, os.path.abspath('.'))
 
 # -- General configuration ------------------------------------------------
+
+_on_rtd = os.environ.get('READTHEDOCS', 'False') == 'True'
 
 # If your documentation needs a minimal Sphinx version, state it here.
 # needs_sphinx = '1.0'
@@ -40,7 +42,7 @@ extensions = [
 
 _READTHEDOCS_PATTERN = 'https://{}.readthedocs.io/en/latest/'
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3.6', None),
+    'python': ('https://docs.python.org/3.8', None),
     'numpy': ("https://numpy.org/doc/stable/", None),
     'maplotlib': ('https://matplotlib.org', None),
     'pynn': ("http://neuralensemble.org/docs/PyNN/", None),
@@ -56,8 +58,8 @@ intersphinx_mapping = {
     'spalloc': (_READTHEDOCS_PATTERN.format('spalloc'), None),
     'spinn_front_end_common': (
         _READTHEDOCS_PATTERN.format('spinnfrontendcommon'), None),
-    'spynnaker': (_READTHEDOCS_PATTERN.format('spynnaker'), None),
-    'spynnaker8': (_READTHEDOCS_PATTERN.format('spynnaker8'), None)}
+    'spynnaker': (_READTHEDOCS_PATTERN.format('spynnaker'), None)
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -73,7 +75,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'SpiNNaker8Manchester'
-copyright = u'2014-2020'
+copyright = u'2014-2021'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -363,32 +365,158 @@ epub_exclude_files = ['search.html']
 
 autoclass_content = 'both'
 
-MOCK_MODULES = ['scipy', 'scipy.stats']
-for mod_name in MOCK_MODULES:
-    sys.modules[mod_name] = mock.Mock()
+# We want to document __call__ when encountered
+autodoc_default_options = {
+    "members": None,
+    "special-members": "__call__"
+}
+
+if _on_rtd:
+    # Some packages need mocking
+    autodoc_mock_imports = [
+        '_tkinter', 'scipy', 'scipy.stats', 'matplotlib',
+        'pyNN', 'pyNN.random', 'pyNN.common', 'neo', 'quantities', 'lazyarray']
+
+# The .py files (name beginning with a letter) we want in the doc build
+wanted_files = {
+    "spinn_utilities": [
+        "abstract_base.py",
+        "abstract_context_manager.py",
+        "bytestring_utils.py",
+        "classproperty.py",
+        "conf_loader.py",
+        "default_ordered_dict.py",
+        "exceptions.py",
+        "executable_finder.py",
+        "find_max_success.py",
+        "helpful_functions.py",
+        "index_is_value.py",
+        "log.py",
+        "logger_utils.py",
+        "ordered_set.py",
+        "overrides.py",
+        "package_loader.py",
+        "ping.py",
+        "progress_bar.py",
+        "require_subclass.py",
+        "safe_eval.py",
+        "see.py",
+        "socket_address.py",
+        "timer.py",
+        "make_tools/replacer.py",
+        "testing/log_checker.py"],
+    "spinn_machine": [
+        "json_machine.py",
+        "exceptions.py"],
+    "spinnman": [
+        "constants.py",
+        "get_cores_in_run_state.py",
+        "exceptions.py",
+        "transceiver.py",
+        "messages/multicast_message.py",
+        "utilities/utility_functions.py",
+        "utilities/appid_tracker.py",
+        "utilities/locate_connected_machine_ip_address.py",
+        "utilities/reports.py"],
+    "pacman": [
+        "exceptions.py",
+        "model/partitioner_interfaces/abstract_slices_connect.py",
+        "operations/algorithm_reports/reports.py",
+        "operations/router_algorithms/routing_tree.py",
+        "utilities/constants.py",
+        "utilities/utility_calls.py",
+        "utilities/json_utils.py",
+        "utilities/algorithm_utilities/element_allocator_algorithm.py",
+        "utilities/algorithm_utilities/machine_algorithm_utilities.py",
+        "utilities/algorithm_utilities/routing_info_allocator_utilities.py",
+        "utilities/algorithm_utilities/placer_algorithm_utilities.py",
+        "utilities/algorithm_utilities/partition_algorithm_utilities.py"],
+    "data_specification": [
+        "constants.py",
+        "utility_calls.py",
+        "exceptions.py"],
+    "spinn_front_end_common": [
+        "interface/java_caller.py",
+        "interface/abstract_spinnaker_base.py",
+        "interface/simulator_state.py",
+        "interface/config_handler.py",
+        "utilities/class_utils.py",
+        "utilities/constants.py",
+        "utilities/system_control_logic.py",
+        "utilities/globals_variables.py",
+        "utilities/helpful_functions.py",
+        "utilities/exceptions.py",
+        "utilities/report_functions/energy_report.py"],
+    "spynnaker": [
+        "gsyn_tools.py",
+        "spike_checker.py",
+        "plot_utils.py",
+        "pyNN/abstract_spinnaker_common.py",
+        "pyNN/exceptions.py",
+        "pyNN/spynnaker_simulator_interface.py",
+        "pyNN/spynnaker_external_device_plugin_manager.py",
+        "pyNN/models/abstract_pynn_model.py",
+        "pyNN/models/projection.py",
+        "pyNN/models/defaults.py",
+        "pyNN/models/recorder.py",
+        "pyNN/models/neuron/key_space_tracker.py",
+        "pyNN/models/neuron/synaptic_matrices.py",
+        "pyNN/models/neuron/master_pop_table.py",
+        "pyNN/models/neuron/synaptic_matrix.py",
+        "pyNN/models/neuron/synapse_io.py",
+        "pyNN/models/neuron/synaptic_matrix_app.py",
+        "pyNN/models/neuron/plasticity/stdp/common.py",
+        "pyNN/models/spike_source/spike_source_array_vertex.py",
+        "pyNN/models/spike_source/spike_source_poisson_vertex.py",
+        "pyNN/models/spike_source/spike_source_poisson_machine_vertex.py",
+        "pyNN/models/common/recording_utils.py",
+        "pyNN/utilities/bit_field_utilities.py",
+        "pyNN/utilities/spynnaker_failed_state.py",
+        "pyNN/utilities/constants.py",
+        "pyNN/utilities/data_cache.py",
+        "pyNN/utilities/extracted_data.py",
+        "pyNN/utilities/fake_HBP_Portal_machine_provider.py",
+        "pyNN/utilities/running_stats.py",
+        "pyNN/utilities/utility_calls.py",
+        "pyNN/utilities/struct.py",
+        "pyNN/utilities/variable_cache.py"],
+    "spynnaker8": [
+        "spynnaker8_simulator_interface.py",
+        "spynnaker_plotting.py",
+        "utilities/neo_convertor.py",
+        "utilities/neo_compare.py"]
+}
 
 
-def list_module(module_name, exclude=None):
+def _filtered_files(module_name, base):
+    excludes = frozenset(
+        os.path.join(base, e) for e in wanted_files.get(module_name, ()))
+    for root, _dirs, files in os.walk(base):
+        for filename in files:
+            if filename.endswith(".py") and not filename.startswith("_"):
+                full = os.path.join(root, filename)
+                if excludes and full not in excludes:
+                    yield full
+
+
+def list_module(module_name, filters=None):
     if os.path.exists(module_name):
         for name in os.listdir(module_name):
             path = os.path.join(module_name, name)
             os.remove(path)
     else:
         os.mkdir(module_name)
-    module = __import__(module_name)
-    source = os.path.dirname(module.__file__)
-    if exclude is None:
-        apidoc.main([None, '-o', module_name, source])
-    else:
-        exclude_path = os.path.join(source, exclude)
-        apidoc.main([None, '-o', module_name, source, exclude_path])
+    source = os.path.dirname(__import__(module_name).__file__)
+    if not filters:
+        filters = _filtered_files(module_name, source)
+    apidoc.main(['-o', module_name, source, *filters])
 
 
 list_module("spinn_utilities")
 list_module("spinn_machine")
 list_module("spinnman")
 list_module("pacman")
-list_module("data_specification", "data_spec_sender")
+list_module("data_specification")
 list_module("spinn_front_end_common")
 list_module("spynnaker")
 list_module("spynnaker8")

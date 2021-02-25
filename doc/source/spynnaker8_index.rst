@@ -2,6 +2,7 @@ sPyNNaker
 =========
 
 .. automodule:: spynnaker8
+   :noindex:
 
 Contents
 --------

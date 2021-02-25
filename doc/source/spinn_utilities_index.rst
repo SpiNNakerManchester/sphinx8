@@ -2,6 +2,7 @@ SpiNNUtils
 ==========
 
 .. automodule:: spinn_utilities
+   :noindex:
 
 Contents
 --------

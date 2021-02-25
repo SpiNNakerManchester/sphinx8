@@ -2,6 +2,7 @@ SpiNNMan
 ========
 
 .. automodule:: spinnman
+   :noindex:
 
 Contents
 --------

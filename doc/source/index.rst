@@ -1,16 +1,26 @@
 SpiNNaker Manchester (PyNN 0.9)
 =============================
-These pages document the main Manchester python code for the PyNN 0.9 branch of the SpiNNaker_ Project which can be found on github_
+These pages document sPyNNaker 6, an implementation of PyNN_ 0.9 for the
+SpiNNaker_ platform, which can be found on github_. It is an implementation of
+a toolkit for creating simulations of spiking neural networks. sPyNNaker is
+particularly noted for being able to run very large simulations and in
+real-time; it is possible to interface external hardware directly to a
+SpiNNaker system.
 
-Alternative way to run SpiNNaker_ are using the SpiNNakerGraphFrontEnd_.
+An alternative way to run SpiNNaker_ programs is using the
+SpiNNakerGraphFrontEnd_. That is optimised for non-neural simulations.
+(Hybrid neural/non-neural simulations are also possible; contact the team if
+you are interested.)
 
+.. _PyNN: https://neuralensemble.org/PyNN/
 .. _SpiNNaker: http://apt.cs.manchester.ac.uk/projects/SpiNNaker/
 .. _github: https://github.com/SpiNNakerManchester
 .. _SpiNNakerGraphFrontEnd: http://spinnaker-graphfrontend-combined.readthedocs.io
 
 SpiNNUtils
 ----------
-This provides basic utility functions and classes to other parts of SpiNNaker's tooling. Nothing in here knows anything about SpiNNaker functionality.
+This provides basic utility functions and classes to other parts of SpiNNaker's
+tooling. Nothing in here knows anything about SpiNNaker functionality.
 
 .. toctree::
    :maxdepth: 3
@@ -26,7 +36,9 @@ SpiNNUtils_individual_docs_
 
 SpiNNMachine
 ------------
-This package is used to provide a Python representation of a SpiNNaker machine
+This package is used to provide a Python representation of a SpiNNaker machine.
+This contains the basic model of SpiNNaker hardware, as required by the other
+packages described below.
 
 .. toctree::
    :maxdepth: 3
@@ -40,10 +52,10 @@ SpiNNMachine_individual_docs_
 .. _SpiNNMachine_github: https://github.com/SpiNNakerManchester/SpiNNMachine
 .. _SpiNNMachine_individual_docs: http://spinnmachine.readthedocs.io
 
-
 PACMAN
 ------
-This package provides utilities for partitioning, placing a routing on a SpiNNaker machine
+This package provides utilities for partitioning, placing and routing a
+graph-based application on a SpiNNaker machine.
 
 .. toctree::
    :maxdepth: 3
@@ -57,10 +69,9 @@ PACMAN_individual_docs_
 .. _PACMAN_github: https://github.com/SpiNNakerManchester/PACMAN
 .. _PACMAN_individual_docs: http://pacman.readthedocs.io
 
-
 SpiNNMan
 --------
-This package provides utilities for interacting with a SpiNNaker machine.
+This package provides a transceiver for communicating with a SpiNNaker machine.
 
 .. toctree::
    :maxdepth: 3
@@ -74,10 +85,10 @@ SpiNNMan_individual_docs_
 .. _SpiNNMan_github: https://github.com/SpiNNakerManchester/SpiNNMan
 .. _SpiNNMan_individual_docs: http://spinnman.readthedocs.io
 
-
 DataSpecification
 -----------------
-This package provides utilities for specifying binary data algorithmically, and executing the specifications to produce the data.
+This package provides utilities for specifying binary data algorithmically,
+and executing the specifications to produce the data.
 
 .. toctree::
    :maxdepth: 3
@@ -93,7 +104,9 @@ DataSpecification_individual_docs_
 
 SpiNNFrontEndCommon
 -------------------
-This package provides functionality which are common to front ends that translate application level programs into executables which run on a SpiNNaker machine.
+This package provides functionality which are common to all front ends that
+translate application level programs into executables which run on a SpiNNaker
+machine.
 
 .. toctree::
    :maxdepth: 3
@@ -106,7 +119,6 @@ SpiNNFrontEndCommon_individual_docs_
 
 .. _SpiNNFrontEndCommon_github: https://github.com/SpiNNakerManchester/SpiNNFrontEndCommon
 .. _SpiNNFrontEndCommon_individual_docs: http://spinnfrontendcommon.readthedocs.io
-
 
 sPyNNaker
 ---------
@@ -124,10 +136,10 @@ sPyNNaker_individual_docs_
 .. _sPyNNaker_github: https://github.com/SpiNNakerManchester/sPyNNaker
 .. _sPyNNaker_individual_docs: http://spynnaker.readthedocs.io
 
-
 sPyNNaker8
 ---------
-This package provides a PyNN 0.8 implementation for SpiNNaker.
+This package provides a PyNN 0.9 implementation for SpiNNaker.
+It is a very thin layer over the sPyNNaker package.
 
 .. toctree::
    :maxdepth: 3
@@ -143,11 +155,13 @@ sPyNNaker8_individual_docs_
 
 spalloc
 -------
-Spalloc is a Python library and set of command-line programs for requesting SpiNNaker machines from a spalloc server.
+Spalloc is a Python client library and set of command-line programs for
+requesting SpiNNaker machines from a spalloc server.
 
-The spalloc module uses a different documentation style so is not included here.
+The ``spalloc`` module uses a different documentation style so is not included
+here.
 
-Their documenation can be found at: spalloc_readthedocs_
+Their documentation can be found at: spalloc_readthedocs_
 
 spalloc_github_
 
@@ -156,18 +170,19 @@ spalloc_github_
 
 spalloc_server
 --------------
-A SpiNNaker machine management application which manages the partitioning and allocation of large SpiNNaker machines
-into smaller fragments for many simultaneous users.
+A SpiNNaker machine management application which manages the partitioning and
+allocation of large SpiNNaker machines into smaller fragments for many
+simultaneous users.
 
-The spalloc_server module uses a different documentation style so is not included here.
+The ``spalloc_server`` module uses a different documentation style so is not
+included here.
 
-Their documenation can be found at: spalloc_server_readthedocs_
+Their documentation can be found at: spalloc_server_readthedocs_
 
 spalloc_server_github_
 
 .. _spalloc_server_github: https://github.com/SpiNNakerManchester/spalloc_server
 .. _spalloc_server_readthedocs: http://spalloc-server.readthedocs.io
-
 
 Indices and tables
 ------------------

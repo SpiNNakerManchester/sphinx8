@@ -2,6 +2,7 @@ SpiNNMachine
 ============
 
 .. automodule:: spinn_machine
+   :noindex:
 
 Contents
 --------
