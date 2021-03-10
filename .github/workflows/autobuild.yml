@@ -1,0 +1,19 @@
+name: Trigger ReadTheDocs Periodic Build
+on:
+  schedule:
+    - cron: '34 22 * * *'
+
+env:
+  BRANCHES: latest
+  # Obtained from RTD project's Integrations admin page
+  PROJECT: spinnaker8manchester/149067/
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Trigger
+      run: |
+        curl --silent --show-error --fail -X POST -d "branches=$BRANCHES" -d "token=$TOKEN" https://readthedocs.org/api/v2/webhook/$PROJECT
+      env:
+        TOKEN: ${{ secrets.READTHEDOCS_TOKEN }}
