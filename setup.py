@@ -12,7 +12,7 @@ setup(
                 "PyNN 0.9 on the SpiNNaker platform",
     author="University of Manchester",
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
 
         "Intended Audience :: Science/Research",
 
