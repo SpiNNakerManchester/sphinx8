@@ -1,4 +1,4 @@
-This repository serves only to generate combined code on rearthedocs for [sPyNNaker8](https://github.com/SpiNNakerManchester/sPyNNaker8) and the code it depends on.
+This repository serves only to generate combined code on rearthedocs for [sPyNNaker](https://github.com/SpiNNakerManchester/sPyNNaker), [SpiNNakerGraphFrontEnd](https://github.com/SpiNNakerManchester/SpiNNakerGraphFrontEnd) and the code they depends on.
  
 Documentation
 =============
