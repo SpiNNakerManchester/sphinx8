@@ -60,7 +60,7 @@ intersphinx_mapping = {
         _READTHEDOCS_PATTERN.format('spinnfrontendcommon'), None),
     'spynnaker': (_READTHEDOCS_PATTERN.format('spynnaker'), None),
     'spinnaker_graph_front_end': (
-        _READTHEDOCS_PATTERN.format('spinnaker_graph_front_end'), None)
+        _READTHEDOCS_PATTERN.format('spinnakergraphfrontend'), None)
 }
 
 # Add any paths that contain templates here, relative to this directory.

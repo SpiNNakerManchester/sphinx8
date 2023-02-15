@@ -1,5 +1,5 @@
-sPyNNaker
-=========
+SpiNNakerGraphFrontEnd
+======================
 
 .. automodule:: spinnaker_graph_front_end
    :noindex:
