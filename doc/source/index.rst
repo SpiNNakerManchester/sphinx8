@@ -1,14 +1,15 @@
-SpiNNaker Manchester (PyNN 0.9)
-=============================
-These pages document sPyNNaker 6, an implementation of PyNN_ 0.9 for the
-SpiNNaker_ platform, which can be found on github_. It is an implementation of
+SpiNNaker Manchester (PyNN 0.9) and GFE
+=======================================
+These pages document the python code for the Spinnaker Projectwhich can be found on github_.
+
+This includes sPyNNaker 6, an implementation of PyNN_ 0.9 for the
+SpiNNaker_ platform,  It is an implementation of
 a toolkit for creating simulations of spiking neural networks. sPyNNaker is
 particularly noted for being able to run very large simulations and in
 real-time; it is possible to interface external hardware directly to a
 SpiNNaker system.
 
-An alternative way to run SpiNNaker_ programs is using the
-SpiNNakerGraphFrontEnd_. That is optimised for non-neural simulations.
+The SpiNNakerGraphFrontEnd_ which is optimised for non-neural simulations.
 (Hybrid neural/non-neural simulations are also possible; contact the team if
 you are interested.)
 
@@ -122,7 +123,7 @@ SpiNNFrontEndCommon_individual_docs_
 
 sPyNNaker
 ---------
-This package provides the base for the PyNN implementation for SpiNNaker.
+This package provides a PyNN 0.9 implementation for SpiNNaker.
 
 .. toctree::
    :maxdepth: 3
@@ -136,22 +137,21 @@ sPyNNaker_individual_docs_
 .. _sPyNNaker_github: https://github.com/SpiNNakerManchester/sPyNNaker
 .. _sPyNNaker_individual_docs: http://spynnaker.readthedocs.io
 
-sPyNNaker8
----------
-This package provides a PyNN 0.9 implementation for SpiNNaker.
-It is a very thin layer over the sPyNNaker package.
+SpiNNakerGraphFrontEnd
+----------------------
+This package provides a Graph Front End implementation for SpiNNaker.
 
 .. toctree::
    :maxdepth: 3
 
-   spynnaker8_index
+   spinnaker_graph_front_end_index
 
-sPyNNaker8_github_
+SpiNNakerGraphFrontEnd_github_
 
-sPyNNaker8_individual_docs_
+SpiNNakerGraphFrontEnd_individual_docs_
 
-.. _sPyNNaker8_github: https://github.com/SpiNNakerManchester/sPyNNaker8
-.. _sPyNNaker8_individual_docs: http://spynnaker8.readthedocs.io
+.. _SpiNNakerGraphFrontEnd_github: https://github.com/SpiNNakerManchester/SpiNNakerGraphFrontEnd
+.. _SpiNNakerGraphFrontEnd_individual_docs: https://readthedocs.org/projects/spinnakergraphfrontend/
 
 spalloc
 -------

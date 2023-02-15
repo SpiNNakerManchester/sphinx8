@@ -1,7 +1,7 @@
-sPyNNaker
-=========
+SpiNNakerGraphFrontEnd
+======================
 
-.. automodule:: spynnaker8
+.. automodule:: spinnaker_graph_front_end
    :noindex:
 
 Contents
@@ -10,7 +10,7 @@ Contents
 .. toctree::
    :maxdepth: 10
 
-   spynnaker8/modules.rst
+   spinnaker_graph_front_end/modules.rst
 
 Indices and tables
 ------------------
