@@ -2,4 +2,4 @@ This repository serves only to generate combined code on rearthedocs for [sPyNNa
  
 Documentation
 =============
-[http://spinnaker8manchester.readthedocs.io](http://spinnaker8manchester.readthedocs.io)
+[http://spinnakermanchester.readthedocs.io](http://spinnakermanchester.readthedocs.io)
