@@ -7,9 +7,8 @@ packages = []
 package_data = defaultdict(list)
 
 setup(
-    name="spinnaker8manchester",
-    description="Tools for simulating neural models generated using "
-                "PyNN 0.9 on the SpiNNaker platform",
+    name="spinnakermanchester",
+    description="Pythn documentation for the SpiNNaker platform",
     author="University of Manchester",
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -23,12 +22,16 @@ setup(
         "Operating System :: MacOS",
 
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
 
         "Topic :: Scientific/Engineering",
     ],
-    keywords="spinnaker pynn0.8 neural simulation",
-    url="https://github.com/SpiNNakerManchester/SpyNNaker8",
+    keywords="spinnaker pynn0.9 neural simulation",
+    url="https://github.com/SpiNNakerManchester/sphinx8",
     packages=packages,
     package_data=package_data,
     install_requires=[],
