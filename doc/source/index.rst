@@ -9,14 +9,13 @@ particularly noted for being able to run very large simulations and in
 real-time; it is possible to interface external hardware directly to a
 SpiNNaker system.
 
-The SpiNNakerGraphFrontEnd_ which is optimised for non-neural simulations.
+The SpiNNakerGraphFrontEnd which is optimised for non-neural simulations.
 (Hybrid neural/non-neural simulations are also possible; contact the team if
 you are interested.)
 
 .. _PyNN: https://neuralensemble.org/PyNN/
 .. _SpiNNaker: http://apt.cs.manchester.ac.uk/projects/SpiNNaker/
 .. _github: https://github.com/SpiNNakerManchester
-.. _SpiNNakerGraphFrontEnd: http://spinnaker-graphfrontend-combined.readthedocs.io
 
 SpiNNUtils
 ----------
@@ -33,7 +32,7 @@ SpiNNUtils_github_
 SpiNNUtils_individual_docs_
 
 .. _SpiNNUtils_github: https://github.com/SpiNNakerManchester/SpiNNUtils
-.. _SpiNNUtils_individual_docs: http://spinnutils.readthedocs.io
+.. _SpiNNUtils_individual_docs: https://spinnutils.readthedocs.io
 
 SpiNNMachine
 ------------
@@ -51,7 +50,7 @@ SpiNNMachine_github_
 SpiNNMachine_individual_docs_
 
 .. _SpiNNMachine_github: https://github.com/SpiNNakerManchester/SpiNNMachine
-.. _SpiNNMachine_individual_docs: http://spinnmachine.readthedocs.io
+.. _SpiNNMachine_individual_docs: https://spinnmachine.readthedocs.io
 
 PACMAN
 ------
@@ -68,7 +67,7 @@ PACMAN_github_
 PACMAN_individual_docs_
 
 .. _PACMAN_github: https://github.com/SpiNNakerManchester/PACMAN
-.. _PACMAN_individual_docs: http://pacman.readthedocs.io
+.. _PACMAN_individual_docs: https://pacman.readthedocs.io
 
 SpiNNMan
 --------
@@ -84,7 +83,7 @@ SpiNNMan_github_
 SpiNNMan_individual_docs_
 
 .. _SpiNNMan_github: https://github.com/SpiNNakerManchester/SpiNNMan
-.. _SpiNNMan_individual_docs: http://spinnman.readthedocs.io
+.. _SpiNNMan_individual_docs: https://spinnman.readthedocs.io
 
 DataSpecification
 -----------------
@@ -101,7 +100,7 @@ DataSpecification_github_
 DataSpecification_individual_docs_
 
 .. _DataSpecification_github: https://github.com/SpiNNakerManchester/DataSpecification
-.. _DataSpecification_individual_docs: http://dataspecification.readthedocs.io
+.. _DataSpecification_individual_docs: https://dataspecification.readthedocs.io
 
 SpiNNFrontEndCommon
 -------------------
@@ -119,7 +118,7 @@ SpiNNFrontEndCommon_github_
 SpiNNFrontEndCommon_individual_docs_
 
 .. _SpiNNFrontEndCommon_github: https://github.com/SpiNNakerManchester/SpiNNFrontEndCommon
-.. _SpiNNFrontEndCommon_individual_docs: http://spinnfrontendcommon.readthedocs.io
+.. _SpiNNFrontEndCommon_individual_docs: https://spinnfrontendcommon.readthedocs.io
 
 sPyNNaker
 ---------
@@ -135,7 +134,7 @@ sPyNNaker_github_
 sPyNNaker_individual_docs_
 
 .. _sPyNNaker_github: https://github.com/SpiNNakerManchester/sPyNNaker
-.. _sPyNNaker_individual_docs: http://spynnaker.readthedocs.io
+.. _sPyNNaker_individual_docs: https://spynnaker.readthedocs.io
 
 SpiNNakerGraphFrontEnd
 ----------------------
@@ -151,7 +150,7 @@ SpiNNakerGraphFrontEnd_github_
 SpiNNakerGraphFrontEnd_individual_docs_
 
 .. _SpiNNakerGraphFrontEnd_github: https://github.com/SpiNNakerManchester/SpiNNakerGraphFrontEnd
-.. _SpiNNakerGraphFrontEnd_individual_docs: https://readthedocs.org/projects/spinnakergraphfrontend/
+.. _SpiNNakerGraphFrontEnd_individual_docs: https://spinnakergraphfrontend.readthedocs.io/
 
 spalloc
 -------
