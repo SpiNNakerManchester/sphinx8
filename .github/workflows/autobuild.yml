@@ -6,7 +6,7 @@ on:
 env:
   BRANCHES: latest
   # Obtained from RTD project's Integrations admin page
-  PROJECT: spinnaker8manchester/149067/
+  PROJECT: spinnakermanchester/226620/
 
 jobs:
   trigger:

@@ -76,7 +76,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'SpiNNaker8Manchester'
+project = u'SpiNNakerManchester'
 copyright = u'2014-2021'
 # |version| and |release|, also used in various other places throughout the
 # built documents.
@@ -207,7 +207,7 @@ html_static_path = ['_static']
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'SpiNNaker8Manchesterdoc'
+htmlhelp_basename = 'SpiNNakerManchesterdoc'
 
 # Where to get the mathjax javascript library from because the default is
 # horribly outdated in some versions of Sphinx.
@@ -231,7 +231,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'SpiNNaker8Manchester.tex',
+  ('index', 'SpiNNakerManchester.tex',
    u'SpiNNaker 8 Manchester Documentation', u'', 'manual'),
 ]
 
@@ -261,7 +261,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'SpiNNaker8Manchester', u'SpiNNaker 8 Manchester Documentation',
+    ('index', 'SpiNNakerManchester', u'SpiNNaker Manchester Documentation',
      [u''], 1)
 ]
 
@@ -275,8 +275,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'SpiNNaker8Manchester', u'SpiNNaker 8 Manchester Documentation',
-   u'', 'SpiNNaker8Manchester', '',
+  ('index', 'SpiNNakerManchester', u'SpiNNaker Manchester Documentation',
+   u'', 'SpiNNakerManchester', '',
    'Miscellaneous'),
 ]
 
@@ -296,7 +296,7 @@ texinfo_documents = [
 # -- Options for Epub output ----------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'SpiNNaker8 Manchester'
+epub_title = u'SpiNNaker Manchester'
 epub_author = u''
 epub_publisher = u''
 epub_copyright = u'2017'
@@ -480,11 +480,6 @@ wanted_files = {
         "pyNN/utilities/utility_calls.py",
         "pyNN/utilities/struct.py",
         "pyNN/utilities/variable_cache.py"],
-    "spynnaker8": [
-        "spynnaker8_simulator_interface.py",
-        "spynnaker_plotting.py",
-        "utilities/neo_convertor.py",
-        "utilities/neo_compare.py"]
 }
 
 
@@ -519,4 +514,4 @@ list_module("pacman")
 list_module("data_specification")
 list_module("spinn_front_end_common")
 list_module("spynnaker")
-list_module("spynnaker8")
+list_module("spinnaker_graph_front_end")
