@@ -14,6 +14,6 @@ jobs:
     steps:
     - name: Trigger
       run: |
-        curl --silent --show-error --fail -X POST -d "branches=$BRANCHES" -d "token=$TOKEN" https://readthedocs.org/api/v2/webhook/$PROJECT
+        curl --silent --show-error --fail -X POST -d "ref=$BRANCHES" -d "token=$TOKEN" https://readthedocs.org/api/v2/webhook/$PROJECT
       env:
         TOKEN: ${{ secrets.READTHEDOCS_TOKEN }}
