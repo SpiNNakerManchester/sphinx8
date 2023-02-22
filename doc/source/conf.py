@@ -378,7 +378,7 @@ if _on_rtd:
         'pyNN', 'pyNN.random', 'pyNN.common', 'neo', 'quantities', 'lazyarray']
 
 
-def excluded_because_in_init(base):
+def excluded_because_in_init(module_name, base):
     for root, _dirs, files in os.walk(base):
         if "__init__.py" in files:
             init = os.path.join(root,  "__init__.py")
@@ -392,7 +392,7 @@ def excluded_because_in_init(base):
             "spynnaker", "pyNN", "external_devices", "__init__.py")
 
 
-def list_module(module_name, filters=None):
+def list_module(module_name):
     if os.path.exists(module_name):
         for name in os.listdir(module_name):
             path = os.path.join(module_name, name)
@@ -400,7 +400,7 @@ def list_module(module_name, filters=None):
     else:
         os.mkdir(module_name)
     source = os.path.dirname(__import__(module_name).__file__)
-    filters = excluded_because_in_init(source)
+    filters = excluded_because_in_init(module_name, source)
     apidoc.main(['-o', module_name, source, *filters])
 
 
