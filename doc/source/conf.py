@@ -13,7 +13,7 @@
 # serve to show the default.
 
 from sphinx.ext import apidoc
-#import mock
+import mock
 import sys
 import os
 
