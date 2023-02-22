@@ -389,7 +389,7 @@ def excluded_because_in_init(module_name, base):
                         yield os.path.join(root, parts[1][1:]+".py")
     if module_name == "spynnaker":
         yield os.path.join(
-            "spynnaker", "pyNN", "external_devices", "__init__.py")
+            base, "pyNN", "external_devices", "__init__.py")
 
 
 def list_module(module_name):
