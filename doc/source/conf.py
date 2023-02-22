@@ -412,3 +412,8 @@ list_module("data_specification")
 list_module("spinn_front_end_common")
 list_module("spynnaker")
 list_module("spinnaker_graph_front_end")
+
+# hack for no index on spynnaker.pyNN
+fname = os.path.join("spynnaker", "spynnaker.pyNN.rst");
+with open(fname, "a",  encoding="utf-8") as f:
+    f.write("   :noindex:\n")
