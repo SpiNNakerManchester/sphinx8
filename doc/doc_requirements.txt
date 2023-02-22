@@ -1,6 +1,6 @@
 -e git+https://github.com/SpiNNakerManchester/SpiNNUtils.git@auto_excludes#egg=SpiNNUtilities
 -e git+https://github.com/SpiNNakerManchester/SpiNNMachine.git@auto_excludes#egg=SpiNNMachine
--e git+https://github.com/SpiNNakerManchester/SpiNNMan.git@mauto_excludes#egg=spinnman
+-e git+https://github.com/SpiNNakerManchester/SpiNNMan.git@auto_excludes#egg=spinnman
 -e git+https://github.com/SpiNNakerManchester/PACMAN.git@auto_excludes#egg=spinnaker-pacman
 -e git+https://github.com/SpiNNakerManchester/DataSpecification.git@auto_excludes#egg=spinnaker-dataspecification
 -e git+https://github.com/SpiNNakerManchester/spalloc.git@auto_excludes#egg=spalloc
