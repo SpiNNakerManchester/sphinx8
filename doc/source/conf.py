@@ -13,7 +13,7 @@
 # serve to show the default.
 
 from sphinx.ext import apidoc
-import mock
+#import mock
 import sys
 import os
 
@@ -387,6 +387,9 @@ def excluded_because_in_init(base):
                     if line.startswith("from ."):
                         parts = line.split()
                         yield os.path.join(root, parts[1][1:]+".py")
+    if module_name == "spynnaker":
+        yield os.path.join(
+            "spynnaker", "pyNN", "external_devices", "__init__.py")
 
 
 def list_module(module_name, filters=None):
@@ -398,10 +401,6 @@ def list_module(module_name, filters=None):
         os.mkdir(module_name)
     source = os.path.dirname(__import__(module_name).__file__)
     filters = excluded_because_in_init(source)
-    if module_name == "spynnaker":
-        # excluding a semantic sugar init which double imports
-        filters.append(os.path.join(
-            "spynnaker", "pyNN", "external_devices", "__init__.py"))
     apidoc.main(['-o', module_name, source, *filters])
 
 
