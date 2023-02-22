@@ -377,121 +377,16 @@ if _on_rtd:
         '_tkinter', 'scipy', 'scipy.stats', 'matplotlib',
         'pyNN', 'pyNN.random', 'pyNN.common', 'neo', 'quantities', 'lazyarray']
 
-# The .py files (name beginning with a letter) we want in the doc build
-wanted_files = {
-    "spinn_utilities": [
-        "abstract_base.py",
-        "abstract_context_manager.py",
-        "bytestring_utils.py",
-        "classproperty.py",
-        "conf_loader.py",
-        "default_ordered_dict.py",
-        "exceptions.py",
-        "executable_finder.py",
-        "find_max_success.py",
-        "helpful_functions.py",
-        "index_is_value.py",
-        "log.py",
-        "logger_utils.py",
-        "ordered_set.py",
-        "overrides.py",
-        "package_loader.py",
-        "ping.py",
-        "progress_bar.py",
-        "require_subclass.py",
-        "safe_eval.py",
-        "see.py",
-        "socket_address.py",
-        "timer.py",
-        "make_tools/replacer.py",
-        "testing/log_checker.py"],
-    "spinn_machine": [
-        "json_machine.py",
-        "exceptions.py"],
-    "spinnman": [
-        "constants.py",
-        "get_cores_in_run_state.py",
-        "exceptions.py",
-        "transceiver.py",
-        "messages/multicast_message.py",
-        "utilities/utility_functions.py",
-        "utilities/appid_tracker.py",
-        "utilities/locate_connected_machine_ip_address.py",
-        "utilities/reports.py"],
-    "pacman": [
-        "exceptions.py",
-        "model/partitioner_interfaces/abstract_slices_connect.py",
-        "operations/algorithm_reports/reports.py",
-        "operations/router_algorithms/routing_tree.py",
-        "utilities/constants.py",
-        "utilities/utility_calls.py",
-        "utilities/json_utils.py",
-        "utilities/algorithm_utilities/element_allocator_algorithm.py",
-        "utilities/algorithm_utilities/machine_algorithm_utilities.py",
-        "utilities/algorithm_utilities/routing_info_allocator_utilities.py",
-        "utilities/algorithm_utilities/placer_algorithm_utilities.py",
-        "utilities/algorithm_utilities/partition_algorithm_utilities.py"],
-    "data_specification": [
-        "constants.py",
-        "utility_calls.py",
-        "exceptions.py"],
-    "spinn_front_end_common": [
-        "interface/java_caller.py",
-        "interface/abstract_spinnaker_base.py",
-        "interface/simulator_state.py",
-        "interface/config_handler.py",
-        "utilities/class_utils.py",
-        "utilities/constants.py",
-        "utilities/system_control_logic.py",
-        "utilities/globals_variables.py",
-        "utilities/helpful_functions.py",
-        "utilities/exceptions.py",
-        "utilities/report_functions/energy_report.py"],
-    "spynnaker": [
-        "gsyn_tools.py",
-        "spike_checker.py",
-        "plot_utils.py",
-        "pyNN/abstract_spinnaker_common.py",
-        "pyNN/exceptions.py",
-        "pyNN/spynnaker_simulator_interface.py",
-        "pyNN/spynnaker_external_device_plugin_manager.py",
-        "pyNN/models/abstract_pynn_model.py",
-        "pyNN/models/projection.py",
-        "pyNN/models/defaults.py",
-        "pyNN/models/recorder.py",
-        "pyNN/models/neuron/key_space_tracker.py",
-        "pyNN/models/neuron/synaptic_matrices.py",
-        "pyNN/models/neuron/master_pop_table.py",
-        "pyNN/models/neuron/synaptic_matrix.py",
-        "pyNN/models/neuron/synapse_io.py",
-        "pyNN/models/neuron/synaptic_matrix_app.py",
-        "pyNN/models/neuron/plasticity/stdp/common.py",
-        "pyNN/models/spike_source/spike_source_array_vertex.py",
-        "pyNN/models/spike_source/spike_source_poisson_vertex.py",
-        "pyNN/models/spike_source/spike_source_poisson_machine_vertex.py",
-        "pyNN/models/common/recording_utils.py",
-        "pyNN/utilities/bit_field_utilities.py",
-        "pyNN/utilities/spynnaker_failed_state.py",
-        "pyNN/utilities/constants.py",
-        "pyNN/utilities/data_cache.py",
-        "pyNN/utilities/extracted_data.py",
-        "pyNN/utilities/fake_HBP_Portal_machine_provider.py",
-        "pyNN/utilities/running_stats.py",
-        "pyNN/utilities/utility_calls.py",
-        "pyNN/utilities/struct.py",
-        "pyNN/utilities/variable_cache.py"],
-}
 
-
-def _filtered_files(module_name, base):
-    excludes = frozenset(
-        os.path.join(base, e) for e in wanted_files.get(module_name, ()))
+def excluded_because_in_init(base):
     for root, _dirs, files in os.walk(base):
-        for filename in files:
-            if filename.endswith(".py") and not filename.startswith("_"):
-                full = os.path.join(root, filename)
-                if excludes and full not in excludes:
-                    yield full
+        if "__init__.py" in files:
+            init = os.path.join(root,  "__init__.py")
+            with open(init) as f:
+                for line in f:
+                    if line.startswith("from ."):
+                        parts = line.split()
+                        yield os.path.join(root, parts[1][1:]+".py")
 
 
 def list_module(module_name, filters=None):
@@ -502,8 +397,11 @@ def list_module(module_name, filters=None):
     else:
         os.mkdir(module_name)
     source = os.path.dirname(__import__(module_name).__file__)
-    if not filters:
-        filters = _filtered_files(module_name, source)
+    filters = excluded_because_in_init(source)
+    if module_name == "spynnaker":
+        # excluding a semantic sugar init which double imports
+        filters.append(os.path.join(
+            "spynnaker", "pyNN", "external_devices", "__init__.py"))
     apidoc.main(['-o', module_name, source, *filters])
 
 
