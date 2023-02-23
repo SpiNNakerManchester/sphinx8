@@ -12,11 +12,9 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import mock
-import sys
 import os
-os.environ['SPHINX_APIDOC_OPTIONS'] = \
-    "members,undoc-members,inherited-members,noindex"
+# os.environ['SPHINX_APIDOC_OPTIONS'] = \
+#    "members,undoc-members,inherited-members,noindex"
 from sphinx.ext import apidoc
 
 
@@ -390,9 +388,9 @@ def excluded_because_in_init(module_name, base):
                     if line.startswith("from ."):
                         parts = line.split()
                         yield os.path.join(root, parts[1][1:]+".py")
-    if module_name == "spynnaker":
-        yield os.path.join(
-            base, "pyNN", "external_devices", "__init__.py")
+    #if module_name == "spynnaker":
+    #    yield os.path.join(
+    #        base, "pyNN", "external_devices", "__init__.py")
 
 
 def list_module(module_name):
@@ -404,8 +402,8 @@ def list_module(module_name):
         os.mkdir(module_name)
     source = os.path.dirname(__import__(module_name).__file__)
     filters = excluded_because_in_init(module_name, source)
-    #apidoc.main(['-o', module_name, source, *filters])
-    apidoc.main(['-o', module_name, source])
+    apidoc.main(['-o', module_name, source, *filters])
+
 
 list_module("spinn_utilities")
 list_module("spinn_machine")
@@ -417,6 +415,9 @@ list_module("spynnaker")
 list_module("spinnaker_graph_front_end")
 
 # hack for no index on spynnaker.pyNN
-#fname = os.path.join("spynnaker", "spynnaker.pyNN.rst");
-#with open(fname, "a",  encoding="utf-8") as f:
-#    f.write("   :noindex:\n")
+fname = os.path.join("spynnaker", "spynnaker.pyNN.rst");
+with open(fname, "a",  encoding="utf-8") as f:
+    f.write("   :noindex:\n")
+fname = os.path.join("spynnaker", "spynnaker.pyNN.external_devices.rst");
+with open(fname, "a",  encoding="utf-8") as f:
+    f.write("   :noindex:\n")
