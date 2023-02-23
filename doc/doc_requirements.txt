@@ -1,4 +1,4 @@
--e git+https://github.com/SpiNNakerManchester/SpiNNUtils.git@auto_excludes#egg=SpiNNUtilities
+-e git+https://github.com/SpiNNakerManchester/SpiNNUtils.git@auto_test#egg=SpiNNUtilities
 -e git+https://github.com/SpiNNakerManchester/SpiNNMachine.git@auto_excludes#egg=SpiNNMachine
 -e git+https://github.com/SpiNNakerManchester/SpiNNMan.git@auto_excludes#egg=spinnman
 -e git+https://github.com/SpiNNakerManchester/PACMAN.git@auto_excludes#egg=spinnaker-pacman
