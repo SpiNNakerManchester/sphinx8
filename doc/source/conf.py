@@ -415,9 +415,13 @@ list_module("spynnaker")
 list_module("spinnaker_graph_front_end")
 
 # hack for no index on spynnaker.pyNN
-fname = os.path.join("spynnaker", "spynnaker.pyNN.rst");
-with open(fname, "a",  encoding="utf-8") as f:
-    f.write("   :noindex:\n")
-fname = os.path.join("spynnaker", "spynnaker.pyNN.external_devices.rst");
-with open(fname, "a",  encoding="utf-8") as f:
-    f.write("   :noindex:\n")
+semantic_sugar_files = [
+    os.path.join("spynnaker", "spynnaker.pyNN.rst"),
+    os.path.join("spynnaker", "spynnaker.pyNN.external_devices.rst"),
+    os.path.join("spynnaker", "spynnaker.pyNN.extra_models.rst"),
+    os.path.join("spinnaker_graph_front_end", "spinnaker_graph_front_end.rst")
+]
+
+for semantic_sugar_file in semantic_sugar_files:
+    with open(semantic_sugar_file, "a",  encoding="utf-8") as f:
+        f.write("   :noindex:\n")
