@@ -425,8 +425,12 @@ semantic_sugar_files = [
     os.path.join("spinnaker_graph_front_end", "spinnaker_graph_front_end.rst")
 ]
 for semantic_sugar_file in semantic_sugar_files:
+    with open(semantic_sugar_file, 'r') as f:
+        for line in f:
+            pass
+        noindex_line = line.replace("show-inheritance","noindex")
     with open(semantic_sugar_file, "a",  encoding="utf-8") as f:
-        f.write("   :noindex:\n")
+        f.write(noindex_line)
 
 """
 Notes to explain some of the hacks here.
@@ -487,4 +491,9 @@ Experience however showed that the files fell behind and stopped working as
 expected so they where removed and the simple website gui is used.
 In particular the Install your project using setup.py was not happening.
 
+4. the reason the semantic_sugar_file no_index work has to read the last line
+of the file and then replace and write it back is because sphinx/readthedocs
+is inconsistent in the number of characters it places before the 
+show-inheritance and the noindex has to have the same number of spaces.
+This inconistancy was observed between different local and global runs 
 """
