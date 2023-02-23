@@ -13,6 +13,7 @@
 # serve to show the default.
 
 import os
+# See note at the bottom regarding this
 # os.environ['SPHINX_APIDOC_OPTIONS'] = \
 #    "members,undoc-members,inherited-members,noindex"
 from sphinx.ext import apidoc
@@ -379,6 +380,7 @@ if _on_rtd:
         'pyNN', 'pyNN.random', 'pyNN.common', 'neo', 'quantities', 'lazyarray']
 
 
+# See not at the bottom
 def excluded_because_in_init(module_name, base):
     for root, _dirs, files in os.walk(base):
         if "__init__.py" in files:
@@ -388,7 +390,7 @@ def excluded_because_in_init(module_name, base):
                     if line.startswith("from ."):
                         parts = line.split()
                         yield os.path.join(root, parts[1][1:]+".py")
-    #if module_name == "spynnaker":
+    # if module_name == "spynnaker":
     #    yield os.path.join(
     #        base, "pyNN", "external_devices", "__init__.py")
 
@@ -414,14 +416,75 @@ list_module("spinn_front_end_common")
 list_module("spynnaker")
 list_module("spinnaker_graph_front_end")
 
-# hack for no index on spynnaker.pyNN
+# See not at the bottom
+# add noindex to semantic sugar init files
 semantic_sugar_files = [
     os.path.join("spynnaker", "spynnaker.pyNN.rst"),
     os.path.join("spynnaker", "spynnaker.pyNN.external_devices.rst"),
     os.path.join("spynnaker", "spynnaker.pyNN.extra_models.rst"),
     os.path.join("spinnaker_graph_front_end", "spinnaker_graph_front_end.rst")
 ]
-
 for semantic_sugar_file in semantic_sugar_files:
     with open(semantic_sugar_file, "a",  encoding="utf-8") as f:
         f.write("   :noindex:\n")
+
+"""
+Notes to explain some of the hacks here.
+
+The issue is that a many classes can be imported multiple ways 
+as they are exposed by _init.py
+
+for example: ACSource
+spynnaker.pyNN.models.current_sources.ac_source.ACSource
+spynnaker.pyNN.models.current_sources.ACSource
+spynnaker.pyNN.ACSource
+
+The import from its directory init is standard practice so we want to keep it
+The import from spynnaker.pyNN is to allow easy calls in user scripts
+
+This causes Sphinx and especially ReadTheDocs to create multiple copies of
+the documentation.  That is ok
+But it also cause confusion as to which to link to.
+
+The current fix is in two parts.
+
+1. Find all the local files imported by init files looking for the from .
+pattern and excluding them.
+
+note: This assumes all local import use the from . format!
+
+note: A another approach which is nicer if kept up to date was used in
+release 1!6.0.0,  This kept an list of the files exposed via init.
+This was done for in the local doc and here.
+Experience however showed that the list was not kept up to date
+
+2. For the semantic sugar init files can be told to not be used by adding 
+a noindex flags
+Note: This must be done here and also in the local conf.py files.
+(or at least if there are any links using an exposed class)
+note2: the individual conf.py run in a different directory to the global ones.
+
+note: it is easy to add the noindex to all of the files and in theory this 
+should remove the need for the excluded files
+This is done using 
+os.environ['SPHINX_APIDOC_OPTIONS'] = \
+    "members,undoc-members,inherited-members,noindex"
+before importing apidoc
+
+Last time this approach was tried it generated a lot of weird errors especially
+from spinn_utilities.configs.camel_case_config_parser or the configparser
+it depends on
+
+Another approach tried was to exclude the __init__.py files.
+This fails because Sphinx assumes that only directories
+(after removing excludes) which contain an init files contain code.
+It only worked for directories with an init but no other py files.
+
+3. There are two ways to configure readthedocs. 
+Using their websites Advance Settings pages or a .readthedocs.yaml file.
+The second approach is the one recommended and this was done in version 1!6.0.0
+Experience however showed that the files fell behind and stopped working as 
+expected so they where removed and the simple website gui is used.
+In particular the Install your project using setup.py was not happening.
+
+"""
