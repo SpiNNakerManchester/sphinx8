@@ -13,5 +13,10 @@
 # limitations under the License.
 
 [build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "sPyNNaker"
+authors = [{name = "SpiNNakerTeam", email = "spinnakerusers@googlegroups.com"}]
+dynamic = ["version", "description"]
