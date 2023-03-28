@@ -10,7 +10,7 @@ setup(
     name="spinnakermanchester",
     description="Pythn documentation for the SpiNNaker platform",
     author="University of Manchester",
-    classifiers=[
+    classifiers=
         "Development Status :: 4 - Beta",
 
         "Intended Audience :: Science/Research",
