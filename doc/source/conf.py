@@ -12,10 +12,12 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-from sphinx.ext import apidoc
-import mock
-import sys
 import os
+# See note at the bottom regarding this
+# os.environ['SPHINX_APIDOC_OPTIONS'] = \
+#    "members,undoc-members,inherited-members,noindex"
+from sphinx.ext import apidoc
+
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -377,124 +379,23 @@ if _on_rtd:
         '_tkinter', 'scipy', 'scipy.stats', 'matplotlib',
         'pyNN', 'pyNN.random', 'pyNN.common', 'neo', 'quantities', 'lazyarray']
 
-# The .py files (name beginning with a letter) we want in the doc build
-wanted_files = {
-    "spinn_utilities": [
-        "abstract_base.py",
-        "abstract_context_manager.py",
-        "bytestring_utils.py",
-        "classproperty.py",
-        "conf_loader.py",
-        "default_ordered_dict.py",
-        "exceptions.py",
-        "executable_finder.py",
-        "find_max_success.py",
-        "helpful_functions.py",
-        "index_is_value.py",
-        "log.py",
-        "logger_utils.py",
-        "ordered_set.py",
-        "overrides.py",
-        "package_loader.py",
-        "ping.py",
-        "progress_bar.py",
-        "require_subclass.py",
-        "safe_eval.py",
-        "see.py",
-        "socket_address.py",
-        "timer.py",
-        "make_tools/replacer.py",
-        "testing/log_checker.py"],
-    "spinn_machine": [
-        "json_machine.py",
-        "exceptions.py"],
-    "spinnman": [
-        "constants.py",
-        "get_cores_in_run_state.py",
-        "exceptions.py",
-        "transceiver.py",
-        "messages/multicast_message.py",
-        "utilities/utility_functions.py",
-        "utilities/appid_tracker.py",
-        "utilities/locate_connected_machine_ip_address.py",
-        "utilities/reports.py"],
-    "pacman": [
-        "exceptions.py",
-        "model/partitioner_interfaces/abstract_slices_connect.py",
-        "operations/algorithm_reports/reports.py",
-        "operations/router_algorithms/routing_tree.py",
-        "utilities/constants.py",
-        "utilities/utility_calls.py",
-        "utilities/json_utils.py",
-        "utilities/algorithm_utilities/element_allocator_algorithm.py",
-        "utilities/algorithm_utilities/machine_algorithm_utilities.py",
-        "utilities/algorithm_utilities/routing_info_allocator_utilities.py",
-        "utilities/algorithm_utilities/placer_algorithm_utilities.py",
-        "utilities/algorithm_utilities/partition_algorithm_utilities.py"],
-    "data_specification": [
-        "constants.py",
-        "utility_calls.py",
-        "exceptions.py"],
-    "spinn_front_end_common": [
-        "interface/java_caller.py",
-        "interface/abstract_spinnaker_base.py",
-        "interface/simulator_state.py",
-        "interface/config_handler.py",
-        "utilities/class_utils.py",
-        "utilities/constants.py",
-        "utilities/system_control_logic.py",
-        "utilities/globals_variables.py",
-        "utilities/helpful_functions.py",
-        "utilities/exceptions.py",
-        "utilities/report_functions/energy_report.py"],
-    "spynnaker": [
-        "gsyn_tools.py",
-        "spike_checker.py",
-        "plot_utils.py",
-        "pyNN/abstract_spinnaker_common.py",
-        "pyNN/exceptions.py",
-        "pyNN/spynnaker_simulator_interface.py",
-        "pyNN/spynnaker_external_device_plugin_manager.py",
-        "pyNN/models/abstract_pynn_model.py",
-        "pyNN/models/projection.py",
-        "pyNN/models/defaults.py",
-        "pyNN/models/recorder.py",
-        "pyNN/models/neuron/key_space_tracker.py",
-        "pyNN/models/neuron/synaptic_matrices.py",
-        "pyNN/models/neuron/master_pop_table.py",
-        "pyNN/models/neuron/synaptic_matrix.py",
-        "pyNN/models/neuron/synapse_io.py",
-        "pyNN/models/neuron/synaptic_matrix_app.py",
-        "pyNN/models/neuron/plasticity/stdp/common.py",
-        "pyNN/models/spike_source/spike_source_array_vertex.py",
-        "pyNN/models/spike_source/spike_source_poisson_vertex.py",
-        "pyNN/models/spike_source/spike_source_poisson_machine_vertex.py",
-        "pyNN/models/common/recording_utils.py",
-        "pyNN/utilities/bit_field_utilities.py",
-        "pyNN/utilities/spynnaker_failed_state.py",
-        "pyNN/utilities/constants.py",
-        "pyNN/utilities/data_cache.py",
-        "pyNN/utilities/extracted_data.py",
-        "pyNN/utilities/fake_HBP_Portal_machine_provider.py",
-        "pyNN/utilities/running_stats.py",
-        "pyNN/utilities/utility_calls.py",
-        "pyNN/utilities/struct.py",
-        "pyNN/utilities/variable_cache.py"],
-}
 
-
-def _filtered_files(module_name, base):
-    excludes = frozenset(
-        os.path.join(base, e) for e in wanted_files.get(module_name, ()))
+# See not at the bottom
+def excluded_because_in_init(module_name, base):
     for root, _dirs, files in os.walk(base):
-        for filename in files:
-            if filename.endswith(".py") and not filename.startswith("_"):
-                full = os.path.join(root, filename)
-                if excludes and full not in excludes:
-                    yield full
+        if "__init__.py" in files:
+            init = os.path.join(root,  "__init__.py")
+            with open(init) as f:
+                for line in f:
+                    if line.startswith("from ."):
+                        parts = line.split()
+                        yield os.path.join(root, parts[1][1:]+".py")
+    # if module_name == "spynnaker":
+    #    yield os.path.join(
+    #        base, "pyNN", "external_devices", "__init__.py")
 
 
-def list_module(module_name, filters=None):
+def list_module(module_name):
     if os.path.exists(module_name):
         for name in os.listdir(module_name):
             path = os.path.join(module_name, name)
@@ -502,8 +403,7 @@ def list_module(module_name, filters=None):
     else:
         os.mkdir(module_name)
     source = os.path.dirname(__import__(module_name).__file__)
-    if not filters:
-        filters = _filtered_files(module_name, source)
+    filters = excluded_because_in_init(module_name, source)
     apidoc.main(['-o', module_name, source, *filters])
 
 
@@ -515,3 +415,85 @@ list_module("data_specification")
 list_module("spinn_front_end_common")
 list_module("spynnaker")
 list_module("spinnaker_graph_front_end")
+
+# See not at the bottom
+# add noindex to semantic sugar init files
+semantic_sugar_files = [
+    os.path.join("spynnaker", "spynnaker.pyNN.rst"),
+    os.path.join("spynnaker", "spynnaker.pyNN.external_devices.rst"),
+    os.path.join("spynnaker", "spynnaker.pyNN.extra_models.rst"),
+    os.path.join("spinnaker_graph_front_end", "spinnaker_graph_front_end.rst")
+]
+for semantic_sugar_file in semantic_sugar_files:
+    with open(semantic_sugar_file, 'r') as f:
+        for line in f:
+            pass
+        noindex_line = line.replace("show-inheritance","noindex")
+    with open(semantic_sugar_file, "a",  encoding="utf-8") as f:
+        f.write(noindex_line)
+
+"""
+Notes to explain some of the hacks here.
+
+The issue is that a many classes can be imported multiple ways 
+as they are exposed by _init.py
+
+for example: ACSource
+spynnaker.pyNN.models.current_sources.ac_source.ACSource
+spynnaker.pyNN.models.current_sources.ACSource
+spynnaker.pyNN.ACSource
+
+The import from its directory init is standard practice so we want to keep it
+The import from spynnaker.pyNN is to allow easy calls in user scripts
+
+This causes Sphinx and especially ReadTheDocs to create multiple copies of
+the documentation.  That is ok
+But it also cause confusion as to which to link to.
+
+The current fix is in two parts.
+
+1. Find all the local files imported by init files looking for the from .
+pattern and excluding them.
+
+note: This assumes all local import use the from . format!
+
+note: A another approach which is nicer if kept up to date was used in
+release 1!6.0.0,  This kept an list of the files exposed via init.
+This was done for in the local doc and here.
+Experience however showed that the list was not kept up to date
+
+2. For the semantic sugar init files can be told to not be used by adding 
+a noindex flags
+Note: This must be done here and also in the local conf.py files.
+(or at least if there are any links using an exposed class)
+note2: the individual conf.py run in a different directory to the global ones.
+
+note: it is easy to add the noindex to all of the files and in theory this 
+should remove the need for the excluded files
+This is done using 
+os.environ['SPHINX_APIDOC_OPTIONS'] = \
+    "members,undoc-members,inherited-members,noindex"
+before importing apidoc
+
+Last time this approach was tried it generated a lot of weird errors especially
+from spinn_utilities.configs.camel_case_config_parser or the configparser
+it depends on
+
+Another approach tried was to exclude the __init__.py files.
+This fails because Sphinx assumes that only directories
+(after removing excludes) which contain an init files contain code.
+It only worked for directories with an init but no other py files.
+
+3. There are two ways to configure readthedocs. 
+Using their websites Advance Settings pages or a .readthedocs.yaml file.
+The second approach is the one recommended and this was done in version 1!6.0.0
+Experience however showed that the files fell behind and stopped working as 
+expected so they where removed and the simple website gui is used.
+In particular the Install your project using setup.py was not happening.
+
+4. the reason the semantic_sugar_file no_index work has to read the last line
+of the file and then replace and write it back is because sphinx/readthedocs
+is inconsistent in the number of characters it places before the 
+show-inheritance and the noindex has to have the same number of spaces.
+This inconistancy was observed between different local and global runs 
+"""
