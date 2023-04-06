@@ -57,7 +57,7 @@ intersphinx_mapping = {
     'pacman': (_READTHEDOCS_PATTERN.format('pacman'), None),
     'data_specification': (
         _READTHEDOCS_PATTERN.format('dataspecification'), None),
-    'spalloc': (_READTHEDOCS_PATTERN.format('spalloc'), None),
+    'spalloc_client': (_READTHEDOCS_PATTERN.format('spalloc_client'), None),
     'spinn_front_end_common': (
         _READTHEDOCS_PATTERN.format('spinnfrontendcommon'), None),
     'spynnaker': (_READTHEDOCS_PATTERN.format('spynnaker'), None),
