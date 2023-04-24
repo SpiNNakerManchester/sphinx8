@@ -94,7 +94,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'SpiNNakerManchester'
-copyright = u'2014-2021'
+copyright = u'2014'
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
