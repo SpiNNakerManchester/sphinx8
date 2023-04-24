@@ -43,6 +43,8 @@ extensions = [
 ]
 
 _READTHEDOCS_PATTERN = 'https://{}.readthedocs.io/en/latest/'
+spinnaker_doc_version = "latest"
+
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3.8', None),
     'numpy': ("https://numpy.org/doc/stable/", None),
@@ -51,18 +53,31 @@ intersphinx_mapping = {
     'neo': (_READTHEDOCS_PATTERN.format('neo'), None),
     # We don't link to quantities; their docs are too shit
     # 'quantities': (_READTHEDOCS_PATTERN.format('python-quantities'), None),
-    'spinn_utilities': (_READTHEDOCS_PATTERN.format('spinnutils'), None),
-    'spinn_machine': (_READTHEDOCS_PATTERN.format('spinnmachine'), None),
-    'spinnman': (_READTHEDOCS_PATTERN.format('spinnman'), None),
-    'pacman': (_READTHEDOCS_PATTERN.format('pacman'), None),
+    # We don't link to quantities; their docs are too awful
+    'spinn_utilities': (
+        f'https://spinnutils.readthedocs.io/en/{spinnaker_doc_version}/',
+        None),
+    'spinn_machine': (
+        f'https://spinnmachine.readthedocs.io/en/{spinnaker_doc_version}/',
+        None),
+    'spinnman': (
+        f'https://spinnman.readthedocs.io/en/{spinnaker_doc_version}/', None),
+    'pacman': (
+        f'https://pacman.readthedocs.io/en/{spinnaker_doc_version}/', None),
     'data_specification': (
-        _READTHEDOCS_PATTERN.format('dataspecification'), None),
-    'spalloc_client': (_READTHEDOCS_PATTERN.format('spalloc_client'), None),
+        'https://dataspecification.readthedocs.io/en/'
+        f'{spinnaker_doc_version}/', None),
     'spinn_front_end_common': (
-        _READTHEDOCS_PATTERN.format('spinnfrontendcommon'), None),
-    'spynnaker': (_READTHEDOCS_PATTERN.format('spynnaker'), None),
+        'https://spinnfrontendcommon.readthedocs.io/en/'
+        f'{spinnaker_doc_version}/', None),
+    'spalloc_client': (
+        'https://spalloc_client.readthedocs.io/en/'
+        f'{spinnaker_doc_version}/', None),
+    'spynnaker': (
+        f'https://spynnaker.readthedocs.io/en/{spinnaker_doc_version}/', None),
     'spinnaker_graph_front_end': (
-        _READTHEDOCS_PATTERN.format('spinnakergraphfrontend'), None)
+        'https://spinnakergraphfrontend.readthedocs.io/en/'
+        f'{spinnaker_doc_version}/', None)
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -79,7 +94,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'SpiNNakerManchester'
-copyright = u'2014-2021'
+copyright = u'2014'
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
