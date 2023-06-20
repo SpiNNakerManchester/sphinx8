@@ -2,7 +2,6 @@ git+https://github.com/SpiNNakerManchester/SpiNNUtils.git@master#egg=SpiNNUtilit
 git+https://github.com/SpiNNakerManchester/SpiNNMachine.git@master#egg=SpiNNMachine
 git+https://github.com/SpiNNakerManchester/SpiNNMan.git@master#egg=spinnman
 git+https://github.com/SpiNNakerManchester/PACMAN.git@master#egg=spinnaker-pacman
-git+https://github.com/SpiNNakerManchester/DataSpecification.git@master#egg=spinnaker-dataspecification
 git+https://github.com/SpiNNakerManchester/spalloc.git@master#egg=spalloc
 git+https://github.com/SpiNNakerManchester/SpiNNFrontEndCommon.git@master#egg=spinnfrontendcommon
 git+https://github.com/SpiNNakerManchester/sPyNNaker.git@master#egg=spynnaker

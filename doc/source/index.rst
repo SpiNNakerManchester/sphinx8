@@ -85,23 +85,6 @@ SpiNNMan_individual_docs_
 .. _SpiNNMan_github: https://github.com/SpiNNakerManchester/SpiNNMan
 .. _SpiNNMan_individual_docs: https://spinnman.readthedocs.io
 
-DataSpecification
------------------
-This package provides utilities for specifying binary data algorithmically,
-and executing the specifications to produce the data.
-
-.. toctree::
-   :maxdepth: 3
-
-   data_specification_index
-
-DataSpecification_github_
-
-DataSpecification_individual_docs_
-
-.. _DataSpecification_github: https://github.com/SpiNNakerManchester/DataSpecification
-.. _DataSpecification_individual_docs: https://dataspecification.readthedocs.io
-
 SpiNNFrontEndCommon
 -------------------
 This package provides functionality which are common to all front ends that
