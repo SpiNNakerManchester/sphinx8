@@ -64,10 +64,7 @@ intersphinx_mapping = {
         f'https://spinnman.readthedocs.io/en/{spinnaker_doc_version}/', None),
     'pacman': (
         f'https://pacman.readthedocs.io/en/{spinnaker_doc_version}/', None),
-    'data_specification': (
-        'https://dataspecification.readthedocs.io/en/'
-        f'{spinnaker_doc_version}/', None),
-    'spinn_front_end_common': (
+   'spinn_front_end_common': (
         'https://spinnfrontendcommon.readthedocs.io/en/'
         f'{spinnaker_doc_version}/', None),
     'spalloc_client': (
