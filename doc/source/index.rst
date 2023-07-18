@@ -32,7 +32,7 @@ SpiNNUtils_github_
 SpiNNUtils_individual_docs_
 
 .. _SpiNNUtils_github: https://github.com/SpiNNakerManchester/SpiNNUtils
-.. _SpiNNUtils_individual_docs: https://spinnutils.readthedocs.io
+.. _SpiNNUtils_individual_docs: https://spinnutils.readthedocs.io/en/7.0.0-a6
 
 SpiNNMachine
 ------------
@@ -50,7 +50,7 @@ SpiNNMachine_github_
 SpiNNMachine_individual_docs_
 
 .. _SpiNNMachine_github: https://github.com/SpiNNakerManchester/SpiNNMachine
-.. _SpiNNMachine_individual_docs: https://spinnmachine.readthedocs.io
+.. _SpiNNMachine_individual_docs: https://spinnmachine.readthedocs.io/en/7.0.0-a6
 
 PACMAN
 ------
@@ -67,7 +67,7 @@ PACMAN_github_
 PACMAN_individual_docs_
 
 .. _PACMAN_github: https://github.com/SpiNNakerManchester/PACMAN
-.. _PACMAN_individual_docs: https://pacman.readthedocs.io
+.. _PACMAN_individual_docs: https://pacman.readthedocs.io/en/7.0.0-a6
 
 SpiNNMan
 --------
@@ -83,7 +83,7 @@ SpiNNMan_github_
 SpiNNMan_individual_docs_
 
 .. _SpiNNMan_github: https://github.com/SpiNNakerManchester/SpiNNMan
-.. _SpiNNMan_individual_docs: https://spinnman.readthedocs.io
+.. _SpiNNMan_individual_docs: https://spinnman.readthedocs.io/en/7.0.0-a6
 
 SpiNNFrontEndCommon
 -------------------
@@ -101,7 +101,7 @@ SpiNNFrontEndCommon_github_
 SpiNNFrontEndCommon_individual_docs_
 
 .. _SpiNNFrontEndCommon_github: https://github.com/SpiNNakerManchester/SpiNNFrontEndCommon
-.. _SpiNNFrontEndCommon_individual_docs: https://spinnfrontendcommon.readthedocs.io
+.. _SpiNNFrontEndCommon_individual_docs: https://spinnfrontendcommon.readthedocs.io/en/7.0.0-a6
 
 sPyNNaker
 ---------
@@ -117,7 +117,7 @@ sPyNNaker_github_
 sPyNNaker_individual_docs_
 
 .. _sPyNNaker_github: https://github.com/SpiNNakerManchester/sPyNNaker
-.. _sPyNNaker_individual_docs: https://spynnaker.readthedocs.io
+.. _sPyNNaker_individual_docs: https://spynnaker.readthedocs.io/en/7.0.0-a6
 
 SpiNNakerGraphFrontEnd
 ----------------------
@@ -133,7 +133,7 @@ SpiNNakerGraphFrontEnd_github_
 SpiNNakerGraphFrontEnd_individual_docs_
 
 .. _SpiNNakerGraphFrontEnd_github: https://github.com/SpiNNakerManchester/SpiNNakerGraphFrontEnd
-.. _SpiNNakerGraphFrontEnd_individual_docs: https://spinnakergraphfrontend.readthedocs.io/
+.. _SpiNNakerGraphFrontEnd_individual_docs: https://spinnakergraphfrontend.readthedocs.io/en/7.0.0-a6
 
 spalloc
 -------
@@ -148,7 +148,7 @@ Their documentation can be found at: spalloc_readthedocs_
 spalloc_github_
 
 .. _spalloc_github: https://github.com/SpiNNakerManchester/spalloc
-.. _spalloc_readthedocs: http://spalloc.readthedocs.io
+.. _spalloc_readthedocs: http://spalloc.readthedocs.io/en/7.0.0-a6
 
 spalloc_server
 --------------
@@ -164,7 +164,7 @@ Their documentation can be found at: spalloc_server_readthedocs_
 spalloc_server_github_
 
 .. _spalloc_server_github: https://github.com/SpiNNakerManchester/spalloc_server
-.. _spalloc_server_readthedocs: http://spalloc-server.readthedocs.io
+.. _spalloc_server_readthedocs: http://spalloc-server.readthedocs.io/en/7.0.0-a6
 
 Indices and tables
 ------------------
