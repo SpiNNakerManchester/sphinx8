@@ -246,7 +246,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   ('index', 'SpiNNakerManchester.tex',
-   u'SpiNNaker 8 Manchester Documentation', u'', 'manual'),
+   u'SpiNNaker Manchester Documentation', u'', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -311,9 +311,9 @@ texinfo_documents = [
 
 # Bibliographic Dublin Core info.
 epub_title = u'SpiNNaker Manchester'
-epub_author = u''
+epub_author = u'University of Manchester'
 epub_publisher = u''
-epub_copyright = u'2017'
+epub_copyright = u'%Y University of Manchester'
 
 # The basename for the epub file. It defaults to the project name.
 # epub_basename = u'data_allocation'
