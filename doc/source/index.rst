@@ -1,8 +1,8 @@
-SpiNNaker Manchester (PyNN 0.9) and GFE
+SpiNNaker Manchester: sPyNNaker and GFE
 =======================================
-These pages document the python code for the Spinnaker Projectwhich can be found on github_.
+These pages document the python code for the Spinnaker Project which can be found on github_.
 
-This includes sPyNNaker 6, an implementation of PyNN_ 0.9 for the
+This includes sPyNNaker, an implementation of PyNN_ for the
 SpiNNaker_ platform,  It is an implementation of
 a toolkit for creating simulations of spiking neural networks. sPyNNaker is
 particularly noted for being able to run very large simulations and in
@@ -105,7 +105,7 @@ SpiNNFrontEndCommon_individual_docs_
 
 sPyNNaker
 ---------
-This package provides a PyNN 0.9 implementation for SpiNNaker.
+This package provides a PyNN implementation for SpiNNaker.
 
 .. toctree::
    :maxdepth: 3
