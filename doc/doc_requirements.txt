@@ -1,8 +1,8 @@
-git+https://github.com/SpiNNakerManchester/SpiNNUtils.git@master#egg=SpiNNUtilities
-git+https://github.com/SpiNNakerManchester/SpiNNMachine.git@master#egg=SpiNNMachine
-git+https://github.com/SpiNNakerManchester/SpiNNMan.git@master#egg=spinnman
-git+https://github.com/SpiNNakerManchester/PACMAN.git@master#egg=spinnaker-pacman
-git+https://github.com/SpiNNakerManchester/spalloc.git@master#egg=spalloc
-git+https://github.com/SpiNNakerManchester/SpiNNFrontEndCommon.git@master#egg=spinnfrontendcommon
-git+https://github.com/SpiNNakerManchester/sPyNNaker.git@master#egg=spynnaker
-git+https://github.com/SpiNNakerManchester/SpiNNakerGraphFrontEnd.git@master#egg=SpiNNakerGraphFrontEnd
+git+https://github.com/SpiNNakerManchester/SpiNNUtils.git@7.4.0a2#egg=SpiNNUtilities
+git+https://github.com/SpiNNakerManchester/SpiNNMachine.git@7.4.0a2#egg=SpiNNMachine
+git+https://github.com/SpiNNakerManchester/SpiNNMan.git@7.4.0a2#egg=spinnman
+git+https://github.com/SpiNNakerManchester/PACMAN.git@7.4.0a2#egg=spinnaker-pacman
+git+https://github.com/SpiNNakerManchester/spalloc.git@7.4.0a2#egg=spalloc
+git+https://github.com/SpiNNakerManchester/SpiNNFrontEndCommon.git@7.4.0a2#egg=spinnfrontendcommon
+git+https://github.com/SpiNNakerManchester/sPyNNaker.git@7.4.0a2#egg=spynnaker
+git+https://github.com/SpiNNakerManchester/SpiNNakerGraphFrontEnd.git@7.4.0a2#egg=SpiNNakerGraphFrontEnd
