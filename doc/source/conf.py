@@ -43,7 +43,7 @@ extensions = [
 ]
 
 _READTHEDOCS_PATTERN = 'https://{}.readthedocs.io/en/latest/'
-spinnaker_doc_version = "latest"
+spinnaker_doc_version = "7.4.1"
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3.8', None),
