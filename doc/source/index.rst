@@ -133,7 +133,7 @@ SpiNNakerGraphFrontEnd_github_
 SpiNNakerGraphFrontEnd_individual_docs_
 
 .. _SpiNNakerGraphFrontEnd_github: https://github.com/SpiNNakerManchester/SpiNNakerGraphFrontEnd
-.. _SpiNNakerGraphFrontEnd_individual_docs: https://spinnakergraphfrontend.readthedocs.io/
+.. _SpiNNakerGraphFrontEnd_individual_docs: https://spinnakergraphfrontend.readthedocs.io
 
 spalloc
 -------
